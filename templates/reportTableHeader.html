@@ -1,0 +1,16 @@
+                        {% set ns = namespace(file_path='', len_paths=0, paths=[]) %}
+                        {% set path_list = header.path.split('/') %}
+                        {% set ns.paths = path_list | select() | list %}
+                        {% set ns.len_paths = ns.paths|length %}
+                        {% if ns.len_paths > 1 %}
+                        {% for index in range(ns.len_paths - 1) %}
+                            {% set item = ns.paths[index] %}
+                            <li class="breadcrumb-item {% if index == 0 %}breadcrumb-header{% endif %}">
+                            {% set parent_level = '../' * (ns.len_paths - index - (1 if html.isFolder else 2)) %}
+                            <a href="{{ parent_level }}index.html">{{ item }}</a>
+                            </li>
+                        {% endfor %}
+                            <li class="breadcrumb-item active">{{ ns.paths[-1] }}</li>
+                        {% else %}
+                            <li class="breadcrumb-item active breadcrumb-header">{{ ns.paths[0] }}</li>
+                        {% endif %}

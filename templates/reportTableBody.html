@@ -1,0 +1,50 @@
+            {% set ns = namespace(file_path='', len_paths=0) %}
+            {% set paths = header.path.split('/') %}
+            {% set num_paths = paths|length %}
+            {% if not html.isFolder %}
+                {% set ns.len_paths = num_paths - 2 %}
+            {% else %}
+                {% set ns.len_paths = num_paths - 1 %}
+            {% endif %}
+            {% for index in range(ns.len_paths) %}
+                {% set item = paths[index] %}
+                {% if index > 0 %}
+                    {% set ns.file_path = ns.file_path + '../' %}
+                {% endif %}
+            {% endfor %}
+
+            {% for item in body %}
+                    <tr>
+                        <td class="{{ item.colorCodeClass }}">
+                            {% if item.icon == "" %}
+                            <img src="" class="octicon" />
+                            {{ item.name }}
+                            {% else %}
+                            <img src="{{ [ns.file_path, item.icon]|join('') }}" class="octicon" />
+                                {% if not item.isFolder %}
+                                <a href="{{ item.name ~ '.html' }}">{{ item.name }}</a>
+                                {% else %}
+                                <a href="{{ item.name }}/index.html">{{ item.name }}</a>
+                               {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="{{ item.colorCodeClass }} big">
+                            <div class="progress">
+                                <div class="progress-bar bg-{{ item.colorCodeClass }}" role="progressbar" aria-valuenow="{{ item.isCodeCovLines }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ item.isCodeCovLines }}%">
+                                    <span class="sr-only">{{ item.isCodeCovLines }}% covered ({{ item.colorCodeClass }})</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="{{ item.colorCodeClass }} small"><div align="right">{{ item.isCodeCovLines }}%</div></td>
+                        <td class="{{ item.colorCodeClass }} small"><div align="right">{{ item.isCovLines }} / {{ item.codeLinesValid }}</div></td>
+                        <td class="{{ item.colorFuncClass }} big">
+                            <div class="progress">
+                                <div class="progress-bar bg-{{ item.colorFuncClass }}" role="progressbar" aria-valuenow="{{ item.isCodeCovFunc }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ item.isCodeCovFunc }}%">
+                                    <span class="sr-only">{{ item.isCodeCovFunc }}% covered ({{ item.colorClass }})</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="{{ item.colorFuncClass }} small"><div align="right">{{ item.isCodeCovFunc }}%</div></td>
+                        <td class="{{ item.colorFuncClass }} small"><div align="right">{{ item.isCovFunc }} / {{ item.codeFunc }}</div></td>
+                    </tr>
+            {% endfor %}

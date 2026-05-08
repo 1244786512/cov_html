@@ -1,0 +1,15 @@
+{% for line in code.codeContent %}
+{% set line_index = loop.index %}
+{% set ns = namespace(is_break=false, is_covered=false) %}
+    {% if not ns.is_break %}
+        {% for cov_row in code.isCovRowsList %}
+            {% if line_index >= cov_row.startLine and line_index <= cov_row.endLine %}
+                {% set ns.is_covered = true %}
+                {% set ns.is_break = true %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+<tr class="{% if ns.is_covered %}covered-by-large-tests popin{% endif %}">
+    <td><div align="right" class="line-index"><a name="{{loop.index}}"></a><a href="#{{loop.index}}">{{loop.index}}</a></div></td><td class="codeLine"><span class="default">{{line}}</span></td>
+</tr>
+{% endfor %}

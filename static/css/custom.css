@@ -1,0 +1,261 @@
+html,
+    body {
+        margin: 0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-size: 15px;
+        font-weight: 400;
+        text-align: left;
+        background-color: #fff;
+        min-width: 1300px;
+    }
+    .summary {
+        line-height: 1.5;
+        width: 100%;
+        margin: auto;
+    }
+    .summary-container {
+        display: flex;
+        justify-content:flex-start;
+        background-color: #fff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 5px 15px;
+    }
+    .summary-information {
+        width: 200px;
+    }
+    .summary-box {
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        padding: 20px;
+        font-size: 14px;
+        background:#f4f4f5;
+        display: flex;
+        flex-direction: column; /* 垂直方向的 Flex 布局 */
+    }
+    .summary-box:hover {
+        border-radius: 4px;
+        border: 1px solid #EBEEF5;
+        background-color: #FFF;
+        color: #303133;
+        transition: .3s;
+    }
+
+    /* 上下布局 */
+    .summary-text {
+        flex: 0.3;
+    }
+    .summary-info {
+        flex: 0.8;
+    }
+    .summary-text p {
+        width: 180px;
+        font-size: 20px;
+        color: #6c757d;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+    .summary-box table {
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    .summary-box td {
+        border: none;
+        padding: 5px 0;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        font-weight: bold;
+        color: #60676d;
+    }
+    tr.table-title {
+        text-align: left;
+    }
+    td.table-vlaue {
+        text-align: right;
+        font-weight: normal;
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+    .summary-line,
+    .summary-branch{
+        margin-left: 15px;
+        width: 350px;
+    }
+    .summary-method {
+        margin-left: 15px;
+        width: 370px;
+    }
+    .summary-branch-coverage,
+    .summary-line-coverage,
+    .summary-method-coverage {
+        display: flex;
+        flex-direction: row;
+    }
+    .summary-left {
+        flex: 0.5;
+    }
+    .summary-right {
+        flex: 0.5;
+    }
+    .summary-branch-pic,
+    .summary-line-pic,
+    .summary-method-pic {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-bottom: 5px;
+        margin-right: 10px;
+    }
+    .summary-line-bar,
+    .summary-method-bar {
+        flex: 0.2;
+        height: 100%;
+        width: 100%;
+        padding-left: 5px;
+    }
+    .summary-branch-bar {
+        flex: 0.2;
+        height: 0;
+        width: 100%;
+        padding-left: 5px;
+    }
+    .summary-progress-bar {
+        width: 8px;
+        height: 100%;
+        background-color: red;
+        position: relative;
+        border-radius: 1px;
+    }
+    .progress-rel {
+        border-radius: 1px;
+        width:  8px;
+        background-color: green;
+        position: absolute;
+        bottom: 0;
+    }
+    .summary-branch-text,
+    .summary-line-text,
+    .summary-method-text {
+        flex: 0.8;
+        height: 100%;
+        font-size: 60px;
+        font-weight: bold;
+        color: #666;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 5px;
+    }
+    .summary-branch-number,
+    .summary-line-number,
+    .summary-method-number {
+        width: 100%;
+        height: 70px;
+        display: inline-block;
+    }
+    .container-header {
+        line-height: 1.5;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .row {
+        margin: 0px 0px;
+        width: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .col-md-12 {
+        flex: 0 0 100%;
+        min-width: 100%;
+        position: relative;
+        width: 100%;
+    }
+    .breadcrumb {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 10px 0px;
+        margin: 10px 0px;
+        list-style: none;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        height: 42.5px;
+    }
+    .breadcrumb-item {
+        color: #6c757d;
+    }
+    .breadcrumb-header {
+        margin-left: 15px;
+    }
+    /*.container-fluid {*/
+    /*    margin: 5px 0px;*/
+    /*}*/
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive .table-responsive{
+        border: 0;
+    }
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+    .table {
+        width: 100%;
+        margin-bottom: 5px;
+        color: #212529;
+        line-height: 2.0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: left;
+    }
+    th {
+        /*background-color: #f2f2f2;*/
+        text-align: center; /* 让表头文字居中 */
+    }
+    .table-tr-left {
+        text-align: left;
+    }
+    .table-td-right, .table-tr-right {
+        text-align: right;
+        padding-right: 10px;
+    }
+    .container-footer {
+        margin: 10px 10px;
+    }
+    .footer-block {
+        margin: 0.8rem 0rem 0.5rem 0rem;
+    }
+    span.success, span.warning, span.danger {
+        margin-right: 2px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+    }
+    .octicon {
+        margin-right: 2px;
+        margin-top: 2px;
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+    }
+    .table tbody tr.danger, .table tbody td.danger, li.danger, span.danger {
+        background-color: #f2dede;
+    }
+    .table tbody td.warning, li.warning, span.warning {
+        background-color: #fcf8e3;
+    }
+    .table tbody tr.covered-by-large-tests, li.covered-by-large-tests, tr.success, td.success, li.success, span.success {
+        background-color: #dff0d8;
+    }
